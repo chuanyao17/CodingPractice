@@ -1,13 +1,13 @@
 /******************************************************************************
-Title : myprog.c
+Title : hwk2_chuanyao.lin53.c
 Author : Chuanyao Lin
 Created on : Oct 3, 2021
 Description : Write a sequential program, in C or C++, that simulates the sequence of messages that would be
 passed in a reduction operation that uses the binomial tree model of communication.
 Purpose : Demostrates how the massages sended among each tasks.
-Usage : myprog <n>
+Usage : hwk2_chuanyaolin53 <n>
 The number <n> is the number of tasks.
-Build with : gcc -o myprog myprog.c 
+Build with : gcc -o hwk2_chuanyaolin53 hwk2_chuanyao.lin53.c
 Modifications: Oct 3, 2021
 ******************************************************************************/
 
