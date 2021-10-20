@@ -18,6 +18,7 @@ def evenSubarray(arr, k):
     while right< len(arr):
         if arr[right]%2==1:
             odd_num+=1
+            
         while odd_num>k and left<right:
             if arr[left]%2==1:
                 odd_num-=1
