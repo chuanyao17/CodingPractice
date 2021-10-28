@@ -1,2 +1,2 @@
-abc
-d
+abcab$cabcabc
+ab
