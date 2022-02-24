@@ -67,6 +67,28 @@ from decimal import Decimal, ROUND_HALF_UP
 # test=sorted(test, key=lambda x:(len(x),x[-1]))
 # print(test)
 
-a=1
-b=3
-print(a//b)
+# a=1
+# b=3
+# print(a//b)
+
+import collections
+def twoSum(nums, target):
+    """
+    :type nums: List[int]
+    :type target: int
+    :rtype: List[int]
+    """
+    hash_t=collections.defaultdict(list)
+    for i,num in enumerate(nums):
+        hash_t[num].append(i)
+    output=[]
+    for i in range(len(nums)):
+        complement=target-nums[i]
+        if complement in hash_t:
+            for pos in hash_t[complement]:
+                if pos!=i:
+                    output.append([i,pos])
+    print(output)
+nums=[2,7,11,15,7]
+target=9
+twoSum(nums,target)
