@@ -71,24 +71,76 @@ from decimal import Decimal, ROUND_HALF_UP
 # b=3
 # print(a//b)
 
-import collections
-def twoSum(nums, target):
-    """
-    :type nums: List[int]
-    :type target: int
-    :rtype: List[int]
-    """
-    hash_t=collections.defaultdict(list)
-    for i,num in enumerate(nums):
-        hash_t[num].append(i)
+
+# import collections
+# def twoSum(nums, target):
+#     """
+#     :type nums: List[int]
+#     :type target: int
+#     :rtype: List[int]
+#     """
+#     hash_t=collections.defaultdict(list)
+#     for i,num in enumerate(nums):
+#         hash_t[num].append(i)
+#     output=[]
+#     for i in range(len(nums)):
+#         complement=target-nums[i]
+#         if complement in hash_t:
+#             for pos in hash_t[complement]:
+#                 if pos!=i:
+#                     output.append([i,pos])
+#     print(output)
+# nums=[2,7,11,15,7]
+# target=9
+# twoSum(nums,target)
+
+## Sort a stack using another stack
+# input=[34, 3, 31, 98, 92, 23]
+# tmpStack=[]
+
+# while input:
+#     tmp=input.pop()
+#     while tmpStack and tmp<tmpStack[-1]:
+#         input.append(tmpStack.pop())
+#     tmpStack.append(tmp)
+# print(tmpStack)
+
+# def replaceLargest(arr):
+#     n=len(arr)
+#     if n<1:
+#         return None
+#     max=arr[-1]
+#     arr[-1]=-1
+#     for i in range(n-2,-1,-1):
+#         tmp=arr[i]
+#         arr[i]=max
+#         if tmp>max:
+#             max=tmp
+#     return arr
+# input=[5]
+# print(replaceLargest(input))
+
+def replaceSmallestLargest(arr):
+    n=len(arr)
+    if n<1:
+        return None
     output=[]
-    for i in range(len(nums)):
-        complement=target-nums[i]
-        if complement in hash_t:
-            for pos in hash_t[complement]:
-                if pos!=i:
-                    output.append([i,pos])
-    print(output)
-nums=[2,7,11,15,7]
-target=9
-twoSum(nums,target)
+    
+    for i in range(n):
+        smallLargerNum=float('inf')
+        curNum=arr[i]
+        for j in range(i+1,n):
+            if arr[j]>curNum and smallLargerNum>arr[j]:
+                if  smallLargerNum==float('inf'):
+                    smallLargerNum=arr[j]
+                else:
+                    smallLargerNum=arr[j]
+        if smallLargerNum==float('inf'):
+            output.append(-1)
+        else:
+            output.append(smallLargerNum)
+    return output
+input=[1, 3, 5, 6, 3]
+print(replaceSmallestLargest(input))
+    
+
